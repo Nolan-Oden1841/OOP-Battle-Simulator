@@ -23,7 +23,7 @@ def main():
         target_goblin = random.choice([goblin for goblin in goblins if goblin.is_alive()])
         damage = hero.strike()
         print(f"Hero attacks {target_goblin.name} for {damage} damage!")
-        target_goblin.take_damage(damage)
+        target_goblin.take_damage(damage , target_goblin.health)
 
         # Check if the target goblin was defeated
         if not target_goblin.is_alive():
@@ -35,7 +35,7 @@ def main():
             if goblin.is_alive():
                 damage = goblin.attack()
                 print(f"{goblin.name} attacks hero for {damage} damage!")
-                hero.receive_damage(damage)
+                hero.receive_damage(damage, hero.health)
 
     # Determine outcome
     if hero.is_alive():

@@ -17,9 +17,10 @@ class Goblin:
     def attack(self):
         return random.randint(1, self.attack_power)
 
-    def take_damage(self, damage):
+    def take_damage(self, damage, health):
         self.health -= damage
-        # TODO We should prevent the goblins health from going into the NEGATIVE
+        if health < 0:
+            self.health = 0
         print(f"{self.name} takes {damage} damage. Health is now {self.health}.")
 
     def is_alive(self):
